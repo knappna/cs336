@@ -1,0 +1,28 @@
+6.1
+a. Identify the request methods that you can and can’t test using the two tools listed above.
+If a method cannot be testing using a particular tool, explain why this is the case. List the Curl commands you used successfully.
+
+Methods besides GET cannot be tested with chrome because it does not have access, but chrome works for GET because that is what allows it
+to serve up webpates. Meanwhile, all four others (HEAD, PUT, POST, DELETE) along with GET also work with curl.
+
+Successful curl:
+curl -X GET localhost:3000/request
+curl -X PUT localhost:3000/request
+curl -X POST localhost:3000/request
+curl -X DELETE localhost:3000/request
+
+I recieved this error when trying the HEAD method with curl...
+nak7@gold21:~/cs336/lab06/app$ curl -X HEAD localhost:3000/request
+Warning: Setting custom HTTP method to HEAD with -X/--request may not work the 
+Warning: way you want. Consider using -I/--head instead.
+curl: (18) transfer closed with 147 bytes remaining to read
+
+b. What is the most appropriate HTTP response code for pages that aren’t defined by an Express route?
+HTTP code 500 - Server Error
+
+6.2
+a. What HTTP methods do forms support?
+HTTP request methods GET and POST are the only ones supported by forms.
+
+b. How is the form data being passed back to the server and what syntactic form does it take? Is the data modified in any way?
+Data is passed to the server as a string which is parsed to turn the data into a list of key and value pairs once it reaches the server.
