@@ -18,7 +18,7 @@ Warning: way you want. Consider using -I/--head instead.
 curl: (18) transfer closed with 147 bytes remaining to read
 
 b. What is the most appropriate HTTP response code for pages that aren’t defined by an Express route?
-HTTP code 500 - Server Error
+HTTP code 500 - Server Error because the pages not defined by an Express route are not able to be served up by the Express server, therefore there is a server error.
 
 6.2
 a. What HTTP methods do forms support?
