@@ -1,0 +1,15 @@
+a. Explain:
+i: The component structure of this app is as follows (with tabbed elements being nested in elements above)
+- CommentBox
+  - CommentList
+    - Comment
+  - CommentForm
+The UI is composable in that it allows us to return a tree of components that we have built instead of a basic HTML. 
+In other words, React allows the combination of components into a unit of functionality as a component tree.
+This is important because it allows for easy maintance at the frontend of the code - there are fewer bugs and overall
+composition is easier.
+ii. JSX acts as a precompiler that translates "syntactic sugar" into plain JavaScript code. It automatically rewrites 
+HTML tages as JavaScript which allows us to use the concise and familar syntax of JSX to define the tree structures.
+iii. ReactJS is usable with XSS because React is 'safe' meaning that it does not generate HTML strings leaving XSS 
+protection as the default to protect againts attackers inserting client-side scripts into our web page.
+iv. Data flows through the components of the app in a downward fasion. When previous comments are loaded, it begins in the comment box with the 'loadCommentsFromServer' function.... When a new comment is created... When a comment is saved...
