@@ -12,17 +12,12 @@ ii. JSX acts as a precompiler that translates "syntactic sugar" into plain JavaS
 HTML tages as JavaScript which allows us to use the concise and familar syntax of JSX to define the tree structures.
 iii. ReactJS is usable with XSS because React is 'safe' meaning that it does not generate HTML strings leaving XSS 
 protection as the default to protect againts attackers inserting client-side scripts into our web page.
-
-
-iv. Data flows through the components of the app in a downward fasion. When previous comments are loaded, it begins in the comment box with the 'loadCommentsFromServer' function.... When a new comment is created... When a comment is saved...
+iv. how the data flows through the components. How are comments loaded? created? saved.
+Data flows through the components of the app in a downward and inward fasion moving from comment box, to comment list, to the comment. When previous comments are loaded,  data travels from the comment box with a 'loadCommentsFromServer' function to the comment list, to the comment where the previous comments are rendered. When a new comment is created data is send with the handleSumbit function to the comment form which stores the new author and text. When the new comment is saved it is added to the comment list in the comment box.
 v. the nature and purpose of props and state. Which is immutable and which is mutable and why does this distinction matter?
-
-
-
+Props is immutable - the data is not changed, just displayed. State is mutable - it stores changable data but can only be modified from within its scope. Props and state allow data to be reused (similar to a function) and passed as arguments and safeguarded from outside modification, respectivley (props is passed to a component, state is managed within the componenet).
 b. Consider the following, more detailed questions based on statements in the tutorial.
 i. When adding or removing a comment from the comments.json file, then running the server on the local port 3000,the changes appear on the page within two seconds. This is because the 'polling interval' is set at 2000 miliseconds causing AJAX to reload the components and any possible changes every 2 seconds.
-
-
 ii. After the CommentBox has loaded comments from ther server via the loadCommentsFromServer() function, it defers to AJAX to control the rendering of the page according to its polling interval (set at 2 seconds). This way the whole page is not re-rednered constantly, but only periodically.
-iii. Of what advantage, if any, is it to require that components always represent the current state of the view?
-iv. The app implements optimistic updates. Isn’t optimism here more like foolishness? What if the server rejects the new comment (for whatever reason)?
+iii. Requiring components to represent the current state of view insures that the page is always up to date and that there is not confusion about different version. This helps to compensate for the fact thtat calls to setState() are asynchronous.
+iv. Optimistic updates are not foolish but are helpful in creating a user-friendly experince (app behaves like a downloaded app rather than a web-page, allowing the user to continue interfacing with the page while previous requests are being fufilled). In the event of a failure (server rejecting a comment) the state of the page is reverted to what it was before the success was assumed.
