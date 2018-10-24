@@ -1,5 +1,83 @@
-//creates bold header
-strong font: 200%; font-weight: bold
+//Stylus version
+//Variables for re-use - change these to change wherever they are implemented
+padding-fif = 15px
+font-one = Helvetica
+border-one = 2px solid #000
+background-one = #999
+background-two = #dd8
+background-three = #ccf
+background-four = #feb
 
-//changes nav section to justify right when small screen
-#navigate justify-content: flex-end
+strong
+  font: 200%
+  font-weight: bold
+
+#navigate
+  justify-content: flex-end
+
+body
+  font: 24px font-one
+  background: background-one
+
+//main and all sections within main
+#main
+  min-height: 800px
+  padding: 0px
+  display: flex
+  flex-flow: row
+  #article //article section
+    padding: padding-fif
+    border: border-one
+    background: background-two
+    flex: 3 1 20%
+    order: 2
+  #nav //nav section
+    padding: padding-fif
+    border: border-one
+    background: background-three
+    flex: 1 6 20%
+    order: 1
+  #aside //aside section
+    padding: padding-fif
+    border: border-one
+    background: background-three
+    flex: 1 6 60%
+    order: 3
+
+header //header
+  padding: padding-fif
+  font: 32px font-one
+  display: block
+  min-height: 100px
+  border: border-one
+  background: background-four
+
+footer //footer
+  font: 12px font-one
+  display: block
+  padding: padding-fif
+  min-height: 100px
+  border: border-one
+  background: background-four
+
+/* When page is too narrow to support three columns
+ * alter format to below
+ */
+@media all and (max-width: 640px)
+  #main, //main and all sections within main
+    #page //page section
+      flex-direction: column
+    #article //article section
+      order: 2
+    #nav //nav section
+      order: 1
+      min-height: 100px
+      justify-content: flex-end
+    #aside //aside section
+      order: 3
+      min-height: 100px
+
+  header, //header and footer sections same
+  footer
+    min-height: 50px
+    max-height: 50px
