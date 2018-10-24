@@ -1,90 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <link rel="stylesheet" href="style.sty">
-    <style>
-    body {
-        font: 24px Helvetica;
-        background: #999999;
-    }
-
-    #main {
-        min-height: 800px;
-        padding: 0px;
-        display: flex;
-        flex-flow: row;
-    }
- 
-    #main > article {
-	padding: 15px;
-        border: 2px solid #000000;
-        background: #dddd88;
-        flex: 3 1 20%;
-        order: 2;
-    }
-
-    #main > nav {
-	padding: 15px;
-        border: 2px solid #000000;
-        background: #ccccff;
-        flex: 1 6 20%;
-        order: 1;
-    }
-  
-    #main > aside {
-        padding: 15px;
-        border: 2px solid #000000;
-        background: #ccccff;
-        flex: 1 6 60%;
-        order: 3;
-    }
- 
-    header{
-	padding: 15px;
-        font: 32px Helvetica;
-	display: block;
-        min-height: 100px;
-        border: 2px solid #000000;
-        background: #ffeebb;
-    }
-
-    footer {
-	font: 12px Helvetica;
-        display: block;
-        padding: 15px;
-        min-height: 100px;
-        border: 2px solid #000000;
-        background: #ffeebb;
-    }
- 
-    /* Too narrow to support three columns */
-    @media all and (max-width: 640px) {
-        #main, #page {
-            flex-direction: column;
-        }
-
-        #main > article{
-		order: 2;
-	}
-	 #main > nav{
-		order: 1;
-		min-height: 100px;
-		justify-content: flex-end;
-	}
-
-	#main > aside {
-                order: 3;
-		min-height: 100px;
-        }
-
-
-        header, footer {
-            min-height: 50px;
-            max-height: 50px;
-        }
-    }
-    </style>
+  <link rel="stylesheet" href="style.css">
   </head>
+
   <body>
     <header><strong>Lorem ipsum</strong></header>
     <div id='main'>
