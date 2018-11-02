@@ -1,7 +1,6 @@
 9.1
 a. What good has this bundling done? How big is the new bundle file? 
 Check the Chrome DevTools network log to see what files are being loaded. (ctrl+shift+I)
-
 Bundling has condensed the files into a single file. The new bundle file (dist/bundle.js) is 1.6MB.
 
 b. What role did Babel play in the bundling?
@@ -16,7 +15,6 @@ It tests to look for jsx notation in files (besides those in the node_modules fo
 
 9.2
 a. Check out the new dist/index.html and dist/bundle.js. How are they different from the previous versions?
-
 Bundle.js is now smaller ( line and 1.3 MB). Index.html is also much smaller and more condensed now, the code is
 very short and references bundle.js as the script.
 
@@ -24,11 +22,19 @@ b. What good is it to replace the CDN library loads with module imports?
 It prevents you from having to load the libraries at runtime (makes it more efficeint to load the webpage)
 
 c. Check the network log. How many of the new modules you built are being loaded? How about the CSS file?
+All the new modules are loaded onto the ntework log.
+The CSS file is no longer loaded (held in the <link> tags in the html instead).
 
 9.3
 a. Try out obth ports and explain the difference between them.
-localhost: 3001
-localhost: 3000
+localhost: 3001 - editing a React file
+When a change is made, there is no change on the page. This is because the server is a devonly server and doesn't reload the browser upon changes to keep the React app in state.
+localhost: 3000 - load api/comments
+When the api/comments is loaded, the page appears
+When changes are made, the SPA is updated and so is the bundle (due to the files being "listened" to for changes which trigger automatic updates)
 
 b. Is it worth all this trouble to build a development configuration?
+Yes! The data, time, and space saved by bundling and deploying on our own server far outweighs the work of tweaking the code and formatting to accomplish this.
 
+
+Full disclosure - I wasn't able to get the html to show up in the localhost:3000 webpage, just a blank white page. I went through the lab 2 times and tried to find the problem I had missed, but couldn't for the life of me.
