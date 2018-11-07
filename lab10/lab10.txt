@@ -1,11 +1,17 @@
 1. Compare and contrast MongoDB and the SQL databases you’ve used before. Are there things that one can do that the other can’t?
+Unlike other SQL databases (like mySQL) MongoDB is a noSQL non-relational database that allows for easy scalability and has a dynamic scheema that provides flexibility in changing the data schema without modifying the actual data.
 
 2. You could run MongoDB locally. What advantages and/or disadvantages would that bring with respect to the cloud database you have now?
+Running MongoDB locally would be adventageous in that it does not require a connection to the internet tor the cloud to function, and will be able to work fast as a native application. However because my database is on the cloud, to run MongoDB locally I would first have to download my database from the cloud.
 
 3. You’ve built a “sandbox” database on mLab. Could you use this for a production database? Why or why not?
+No, my sandbox database cannot be used for a production database but is instead designed for testing and debugging the project before it is sent on to production. Data in sandbox databases are not locked down and secure, so snadbox databases have to be transformed before they can be used for produciton.
 
 4. For this integration of mLab into your application, was it better to run the modified server (npm start) or the full Webpack development environment (npm run dev)? Why?
 
+
 5. Explain what happens when you modify the database using mLab’s web interface rather than your application? Try adding/updating/deleting comment documents.
 
+
 6. Is this comments application the sort of application that should use an SQL or a noSQL database? Explain your answer.
+Because this comments appliation has the potential to grow hugley and need to store a large amount of data, a noSQL database is a good choice. Additionally, noSQL databases can be run on low-resource machines, are more flexible, and allow for changing schemes - all of which are important with a project such as this that is prone to the addition and deltion of documents (comments).
