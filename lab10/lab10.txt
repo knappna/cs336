@@ -8,10 +8,10 @@ Running MongoDB locally would be adventageous in that it does not require a conn
 No, my sandbox database cannot be used for a production database but is instead designed for testing and debugging the project before it is sent on to production. Data in sandbox databases are not locked down and secure, so snadbox databases have to be transformed before they can be used for produciton.
 
 4. For this integration of mLab into your application, was it better to run the modified server (npm start) or the full Webpack development environment (npm run dev)? Why?
-
+npm run dev with Webpack, because it automatically updates any changes that have been made to the collection or documents.
 
 5. Explain what happens when you modify the database using mLab’s web interface rather than your application? Try adding/updating/deleting comment documents.
-
+When using mlab's web interface to add, delete, or modify a document, a new screen is pulled up where you can add the new document's information and contents. Then after saving, the new document shows up in the collection. A db.mynewcollection.find() command in the terminal then shows the new document added to the collection.
 
 6. Is this comments application the sort of application that should use an SQL or a noSQL database? Explain your answer.
 Because this comments appliation has the potential to grow hugley and need to store a large amount of data, a noSQL database is a good choice. Additionally, noSQL databases can be run on low-resource machines, are more flexible, and allow for changing schemes - all of which are important with a project such as this that is prone to the addition and deltion of documents (comments).
