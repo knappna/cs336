@@ -3,3 +3,9 @@
 2. You could run MongoDB locally. What advantages and/or disadvantages would that bring with respect to the cloud database you have now?
 
 3. You’ve built a “sandbox” database on mLab. Could you use this for a production database? Why or why not?
+
+4. For this integration of mLab into your application, was it better to run the modified server (npm start) or the full Webpack development environment (npm run dev)? Why?
+
+5. Explain what happens when you modify the database using mLab’s web interface rather than your application? Try adding/updating/deleting comment documents.
+
+6. Is this comments application the sort of application that should use an SQL or a noSQL database? Explain your answer.
