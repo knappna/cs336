@@ -1,0 +1,11 @@
+Homework 2 grade
+- There's no need to put this in an app/ sub-folder.
+
+Server-side upgrades (10)
+- Serve your addPerson and getPerson pages from a public folder 
+- I couldn't access those webpages (-5)
+- Include http-status-codes in your package.json (-1).
+- In REST APIs, updates are done using PUT and deletes using DELETE.
+
+Client-side webpages (10)
+- I couldn't run these files (-5).
