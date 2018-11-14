@@ -1,0 +1,10 @@
+11.1
+a. My development deployment differs from my production deployment in that the development deployment
+runs on a dev (development) server while the production deployment does not. While the dev deployment
+is designed for development (small scale, many changes, lots of testing), the prod deployment is the
+opposite, designed for high scalability in a professional atmosphere.
+b. Optimizations:
+UglifyJsPlugin - gets rid of whitespace, comments, etc. which take up unnecessary room in production
+Removed the development server configuration (because no longer developing)
+
+11.2

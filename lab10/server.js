@@ -94,7 +94,7 @@ app.post('/api/comments', function(req, res) {
 });
 */
 
-export MONGO_PASSWORD=bjarne1;
+//export MONGO_PASSWORD=bjarne1;
 
 MongoClient.connect('mongodb://knappna:process.env.MONGO_PASSWORD@ds155243.mlab.com:55243/cs336', function (err, client) {
   if (err) throw err
