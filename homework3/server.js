@@ -1,11 +1,3 @@
-/*const express = require("express")
-const app = express();
-const http_status = require("http-status-codes");
-const bodyParser = require("body-parser")
-
-const HOST = "localhost";
-const PORT = 3000;
-*/
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -13,11 +5,6 @@ var app = express();
 var MongoClient = require('mongodb').MongoClient;
 
 var db;
-
-/*app.use(express.static("public"));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));*/
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -35,7 +22,7 @@ app.use(function(req, res, next) {
 app.get("/people", function (req, res) {
 	db.collection("Homework3").find({}).toArray(function(err, docs) {
 		if (err) throw err;
-		res.json.(docs);
+		res.json(docs);
 	});
 });
 
@@ -58,45 +45,82 @@ app.post("/people", function (req, res) {
 
 //person/id get, update, or delete person's record
 app.get("/person/id", function (req, res) {
-	db.collection("Homework3").find({req.body.id}).toArray(function(err, docs) {
+	db.collection("Homework3").find({"id" : req}).toArray(function(err, docs) {
 		if (err) throw err;
-		res.json.(docs);
+		res.json(docs);
 	});
 });
 
-app.post("/person/id", function (req, res) {
-        res.send();
-})
+app.put("/person/id", function (req, res) {
+  var updateDoc = req.body;
+  delete updateDoc._id;
 
+  db.collection("Homework3").updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) throw err;
+    res.status(204).end();
+  });
+});
 
-//person/id/name give name data
+app.delete("/person/id", function(req, res) {
+  db.collection("Homework3").deleteOne({"id": req}), function(err, result) {
+    if (err) throw err;
+    res.status(204).end();
+  }
+});
+
+//person/id/name
+//enter id, provide name
 app.get("/person/id/name", function (req, res) {
-        res.status(200).send("Requesting person name based on id");
-})
+  db.collection("Homework3").findOne({"id": req}), function(err, doc) {
+    if (err) throw err;
+    res.status(200).json(doc.first_name);
+    res.json(doc.last_name);
+  }
+});
 
-app.post("/person/id/name", function (req, res) {
-        res.send();
-})
-
-//person/id/years give year data
+//person/id/years 
+//enter id, provide years
 app.get("/person/id/years", function (req, res) {
-        res.status(200).send("Requesting person years based on name");
-})
+  db.collection("Homework3").findOne({"id": req}), function(err, doc) {
+    if (err) throw err;
+    res.status(200);
+    res.json(doc.start_date) = startDate;
+    var years = getYears(startDate);
+    res.json(years);
+  }
+});
 
-app.post("/person/id/years", function (req, res) {
-        res.send();
-})
+
+function getYears(startDate){
+	var today = new Date();
+	var firstDay = new Date(startDate);
+	var age = today.getFullYear() - firstDay.getFullYear();
+	var m = today.getMonth() - firstDay.getMonth();
+	if (m < 0 || (m === 0 && today.getDate() < firstDay.getDate())) {
+		age--;
+	}
+	return age;
+}
 
 
-
-app.listen(PORT, HOST, () => {
-    console.log("listening on " + HOST + ":" + PORT + "...");
+app.listen(app.get('port'), function() {
+    console.log('Server started: http://localhost:' + app.get('port') + '/');
 });
 
 var mongoURL = 'mongodb://cs336:' +
 	       process.env.MONGO_PASSWORD +
            '@ds155243.mlab.com:55243/cs336';
-MongoClient.connect(mongoURL, function(err, dbConnection) {
+MongoClient.connect(mongoURL, { useNewUrlParser: true }, function(err, dbConnection) {
     if (err) throw err;
     db = dbConnection;
 });
+
+
+//React.js front end - just display all people
+app.get('/', function(req, res) {
+    db.collection("Homeowrk3").find({}).toArray(function(err, docs) {
+        if (err) throw err;
+        res.json(docs);
+    });
+});
+
