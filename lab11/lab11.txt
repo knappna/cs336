@@ -8,3 +8,9 @@ UglifyJsPlugin - gets rid of whitespace, comments, etc. which take up unnecessar
 Removed the development server configuration (because no longer developing)
 
 11.2
+a. PasS provides a deployment platform that you don't need to support locally allowing you to run the
+app seperate and independently from your loacal server.
+b. Heroku is able to recognize common set-ups of applications and so is able to figure out how to
+correctly install and run the application you send it. If the application is not recognized by Heroku,
+you are able to specify the app set-up in a Procfile.
+c. Heroku app URL:https://lab11-knappna.herokuapp.com/
