@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "license": "ISC",
-    "description": "Code from the React tutorial.",
+    "description": "Heroku-deployed version of lab10.",
     "main": "server.js",
     "dependencies": {
         "assert": "^1.4.1",
@@ -37,23 +37,5 @@
         "stop": "kill $(pgrep node)",
         "install": "webpack --progress --config ./webpack.production.config.js",
         "start": "node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/reactjs/react-tutorial.git"
-    },
-    "keywords": [
-        "react",
-        "tutorial",
-        "comment",
-        "example"
-    ],
-    "author": "petehunt",
-    "bugs": {
-        "url": "https://github.com/reactjs/react-tutorial/issues"
-    },
-    "homepage": "https://github.com/reactjs/react-tutorial",
-    "engines": {
-        "node": "^4.x"
     }
 }
