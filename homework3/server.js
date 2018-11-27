@@ -19,14 +19,14 @@ app.use(function(req, res, next) {
 });
 
 //people - list of people or add new person based on form
-app.get("/people", function (req, res) {
+app.get("/api/people", function (req, res) {
 	db.collection("Homework3").find({}).toArray(function(err, docs) {
 		if (err) throw err;
 		res.json(docs);
 	});
 });
 
-app.post("/people", function (req, res) {
+app.post("/api/people", function (req, res) {
     var newPerson = {
         id: req.body.id,
         first_name: req.body.first_name,
@@ -44,14 +44,14 @@ app.post("/people", function (req, res) {
 
 
 //person/id get, update, or delete person's record
-app.get("/person/id", function (req, res) {
+app.get("/api/person/id", function (req, res) {
 	db.collection("Homework3").find({"id" : req}).toArray(function(err, docs) {
 		if (err) throw err;
 		res.json(docs);
 	});
 });
 
-app.put("/person/id", function (req, res) {
+app.put("/api/person/id", function (req, res) {
   var updateDoc = req.body;
   delete updateDoc._id;
 
@@ -61,7 +61,7 @@ app.put("/person/id", function (req, res) {
   });
 });
 
-app.delete("/person/id", function(req, res) {
+app.delete("/api/person/id", function(req, res) {
   db.collection("Homework3").deleteOne({"id": req}), function(err, result) {
     if (err) throw err;
     res.status(204).end();
@@ -70,20 +70,21 @@ app.delete("/person/id", function(req, res) {
 
 //person/id/name
 //enter id, provide name
-app.get("/person/id/name", function (req, res) {
+app.get("/api/person/id/name", function (req, res) {
   db.collection("Homework3").findOne({"id": req}), function(err, doc) {
     if (err) throw err;
-    res.status(200).json(doc.first_name);
+    //res.status(200).json(doc.first_name);
+    res.json(doc.first_name);
     res.json(doc.last_name);
   }
 });
 
 //person/id/years 
 //enter id, provide years
-app.get("/person/id/years", function (req, res) {
+app.get("/api/person/id/years", function (req, res) {
   db.collection("Homework3").findOne({"id": req}), function(err, doc) {
     if (err) throw err;
-    res.status(200);
+    //res.status(200);
     res.json(doc.start_date) = startDate;
     var years = getYears(startDate);
     res.json(years);
@@ -118,7 +119,7 @@ MongoClient.connect(mongoURL, { useNewUrlParser: true }, function(err, dbConnect
 
 //React.js front end - just display all people
 app.get('/', function(req, res) {
-    db.collection("Homeowrk3").find({}).toArray(function(err, docs) {
+    db.collection("Homework3").find({}).toArray(function(err, docs) {
         if (err) throw err;
         res.json(docs);
     });
