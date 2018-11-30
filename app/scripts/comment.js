@@ -1,6 +1,7 @@
 //external imports
 import React from 'react';
 import Remarkable from 'remarkable';
+import {Link} from 'react-router';
 //local imports
 
 module.exports = React.createClass({
@@ -18,6 +19,7 @@ module.exports = React.createClass({
           {this.props.author}
         </h2>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
+        <Link to={'/' + this.props.id}>Edit</Link>
       </div>
     );
   }
