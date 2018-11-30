@@ -25,6 +25,7 @@ change the relative paths to abosulte paths in index.html.
 a. What state does the new CommentEdit component maintain and how does that
 compare with the state maintained by the CommentBox component?
 
+
 b. What does the CommentEdit component do when the AJAX PUT or DELETE
 methods return successfully? How does this compare with what the
 “Cancel” button provided by the CommentEdit component does?
