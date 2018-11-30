@@ -90,7 +90,6 @@ module.exports = React.createClass({
                     </button>
                 </form>
                 <Link to='/'>Cancel</Link>
-		<Link to={'/' + this.props.id}>Edit</Link>
             </div>
         );
     }
