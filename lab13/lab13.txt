@@ -24,12 +24,18 @@ change the relative paths to abosulte paths in index.html.
 13.2
 a. What state does the new CommentEdit component maintain and how does that
 compare with the state maintained by the CommentBox component?
+The CommentEdit component maintains props while the CommentBox component
+maintains state.
 
 b. What does the CommentEdit component do when the AJAX PUT or DELETE
 methods return successfully? How does this compare with what the
 “Cancel” button provided by the CommentEdit component does?
+It updates the comment and/or editor and pushes the results to the server.
+If the "Cancel" button was pushed, the comment would not be updated and
+the results would not be pushed.
 
 c. How is the Link added in the last step different from a simple HTML
 hyperlink?
-
-
+It is specific to the edit being made to the comment (as evidenced by 
+the string of numbers at the end of the URL which is the id of the 
+props comment).
